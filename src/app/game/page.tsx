@@ -64,7 +64,7 @@ const GameScreen = () => {
           }}
         >
           <div
-            className="flex items-center gap-6"
+            className="flex items-center gap-6 flex-wrap justify-center"
             style={{ textShadow: "0 0 10px rgba(0, 0, 0, 0.5)" }}
           >
             <img
