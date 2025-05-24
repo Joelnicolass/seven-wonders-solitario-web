@@ -40,8 +40,8 @@ const HomeScreen = () => {
 
       <section
         style={{
-          width: "100%",
-          height: "100%",
+          width: "100svw",
+          height: "100svh",
           display: "flex",
           justifyContent: "center",
           alignItems: "center",
@@ -52,6 +52,7 @@ const HomeScreen = () => {
         <Card
           style={{
             width: "100%",
+            maxWidth: "1024px",
             display: "flex",
             justifyContent: "center",
             alignItems: "center",
@@ -70,7 +71,7 @@ const HomeScreen = () => {
             effect={"cards"}
             grabCursor={true}
             modules={[EffectCards]}
-            className="w-[50%] h-[50%] max-w-[350px] max-h-[300px]"
+            className="w-[50%] h-[50%] max-w-[350px] max-h-[600px]"
             loop
             direction="horizontal"
             allowSlideNext={false}
