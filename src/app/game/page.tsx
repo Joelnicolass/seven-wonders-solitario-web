@@ -10,6 +10,7 @@ import { useRouter } from "next/navigation";
 import { Separator } from "@/components/ui/separator";
 import { Button } from "@/components/ui/button";
 import { shuffleArray } from "../../contexts/card_selection_context";
+import { Spotlight } from "@/components/ui/spotlight-new";
 
 const GameScreen = () => {
   const { actionCards, leaderSelected, resetAll } = useCardSelection();
@@ -24,33 +25,27 @@ const GameScreen = () => {
   }, [actionCards]);
 
   return (
-    <div className="flex flex-col items-center h-screen gap-4">
-      {cards[0].name}
+    <div className="flex flex-col items-center gap-4 h-full w-full">
       <div
         style={{
           position: "absolute",
-          top: 0,
-          left: 0,
-          width: "100dvw",
-          height: "100dvh",
-          zIndex: -1,
-          filter: "blur(100px)",
-          transform: "rotate(-180deg)",
-          backgroundImage: `url(${leaderSelected.image})`,
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-          backgroundRepeat: "no-repeat",
-          backgroundAttachment: "fixed",
+          width: "100svw",
+          height: "100svh",
+          display: "flex",
+          overflow: "hidden",
         }}
-      />
+      >
+        <Spotlight />
+      </div>
       <section
         style={{
-          width: "100%",
-          height: "100%",
+          width: "100svw",
+          height: "100svh",
           display: "flex",
           justifyContent: "center",
           alignItems: "center",
           padding: "20px",
+          maxWidth: "1024px",
         }}
       >
         <Card
@@ -61,6 +56,8 @@ const GameScreen = () => {
             alignItems: "center",
             backgroundColor: "rgba(255, 255, 255, 0.1)",
             padding: "20px",
+            backdropFilter: "blur(20px)",
+            WebkitBackdropFilter: "blur(20px)",
           }}
         >
           <div

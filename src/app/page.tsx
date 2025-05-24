@@ -10,11 +10,11 @@ import { Separator } from "@/components/ui/separator";
 import { Button } from "@/components/ui/button";
 import { useCardSelection } from "@/contexts/card_selection_context";
 import { useRouter } from "next/navigation";
+import { Spotlight } from "@/components/ui/spotlight-new";
 
 const HomeScreen = () => {
   const {
     leaderCards,
-    leaderSelected,
     includeAgora,
     includePantheon,
     setIncludeAgora,
@@ -29,20 +29,15 @@ const HomeScreen = () => {
       <div
         style={{
           position: "absolute",
-          top: 0,
-          left: 0,
-          width: "100dvw",
-          height: "100dvh",
-          zIndex: -1,
-          filter: "blur(100px)",
-          transform: "rotate(-180deg)",
-          backgroundImage: `url(${leaderSelected.image})`,
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-          backgroundRepeat: "no-repeat",
-          backgroundAttachment: "fixed",
+          width: "100svw",
+          height: "100svh",
+          display: "flex",
+          overflow: "hidden",
         }}
-      />
+      >
+        <Spotlight />
+      </div>
+
       <section
         style={{
           width: "100%",
@@ -51,6 +46,7 @@ const HomeScreen = () => {
           justifyContent: "center",
           alignItems: "center",
           padding: "20px",
+          maxWidth: "1024px",
         }}
       >
         <Card
@@ -61,6 +57,8 @@ const HomeScreen = () => {
             alignItems: "center",
             backgroundColor: "rgba(255, 255, 255, 0.1)",
             padding: "20px",
+            backdropFilter: "blur(20px)",
+            WebkitBackdropFilter: "blur(20px)",
           }}
         >
           <span className="text-2xl font-bold text-center">
@@ -68,10 +66,11 @@ const HomeScreen = () => {
           </span>
           <Separator />
           <Swiper
+            slidesPerView={1}
             effect={"cards"}
             grabCursor={true}
             modules={[EffectCards]}
-            className="w-[50%] h-[50%] max-w-[350px] max-h-[500px]"
+            className="w-[50%] h-[50%] max-w-[350px] max-h-[300px]"
             loop
             direction="horizontal"
             allowSlideNext={false}
