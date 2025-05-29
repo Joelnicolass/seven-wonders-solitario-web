@@ -24,12 +24,22 @@ const GameScreen = () => {
     setSwiperKey((prev) => prev + 1);
   }, [actionCards]);
 
+  const getDimensions = () => {
+    if (typeof window === "undefined") {
+      return { width: 0, height: 0 };
+    }
+    return {
+      width: window.innerWidth,
+      height: window.innerHeight,
+    };
+  };
+
   return (
     <>
       <div className="w-screen h-screen fixed top-0 left-0 z-50 pointer-events-none">
         <Spotlight
-          width={window.innerWidth}
-          height={window.innerHeight}
+          width={getDimensions().width}
+          height={getDimensions().height}
           gradientFirst="radial-gradient(
                 rgba(255, 255, 255, 0.1) 0%,
                 rgba(141, 12, 233, 0.04) 50%,
